@@ -1,4 +1,4 @@
-FROM node:16-lts-alpine
+FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app
 
