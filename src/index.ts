@@ -31,7 +31,7 @@ app.use(cors())
 /**
  * Homepage (uniquement necessaire pour cette demo)
  */
-app.post('/lists', async (req, res) => {
+app.post('/lists', async (req:any, res:any) => {
       const siteUrl = req.body.siteUrl
       const username = req.body.username
       const password = req.body.password
@@ -57,20 +57,19 @@ app.post('/lists', async (req, res) => {
       const spctx = await ctx.getContext()
       const oListsCollection: SP.ListCollection = spctx.get_web().get_lists()
       spctx.load(oListsCollection, "Include(Title)")
-      await spctx.executeQueryPromise()
-      const arrList:any[] = []
-      const listsTitlesArr = oListsCollection.get_data().map(l => {
-	arrList.push({ Title:l.get_title() })
-	})
+      spctx.executeQueryPromise().then(()=>{
+        const arrList:any[] = []
+        const listsTitlesArr = oListsCollection.get_data().map(l => {
+          arrList.push({ Title:l.get_title() })
+        })
+        console.log("List test :", arrList)
+        console.log("List :", listsTitlesArr)
+        res.send(JSON.stringify(arrList)) 
+      }).catch((err)=>{
+        res.send(`Error : ${err}`)
+      })
       
-
-      console.log("List test :", arrList)
-      console.log("List :", listsTitlesArr)
-
-     
-	
-     res.send(JSON.stringify(arrList)) 
-      //res.send('🏠')
+      
 })
 
 /**
