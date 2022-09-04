@@ -1,10 +1,9 @@
 import cors from 'cors'
 import express from 'express'
 import { config } from '~/config'
-import { PetsController } from '~/resources/pets/pets.controller'
 import { ExceptionsHandler } from '~/middlewares/exceptions.handler'
 import { UnknownRoutesHandler } from '~/middlewares/unknownRoutes.handler'
-import { JsomNode } from "sp-jsom-node"
+import { JsomNode } from 'sp-jsom-node'
 
 /**
  * On créé une nouvelle "application" express
@@ -27,7 +26,7 @@ app.use(cors())
 /**
  * Toutes les routes CRUD pour les animaux seronts préfixées par `/pets`
  */
-app.use('/pets', PetsController)
+//app.use('/pets', PetsController)
 
 /**
  * Homepage (uniquement necessaire pour cette demo)
@@ -68,7 +67,7 @@ app.post('/lists', async (req, res) => {
       console.log("List test :", arrList)
       console.log("List :", listsTitlesArr)
 
-      console.log("TEST SHAREPOINT :", { result: "success!!!" })
+     
 	
      res.send(JSON.stringify(arrList)) 
       //res.send('🏠')

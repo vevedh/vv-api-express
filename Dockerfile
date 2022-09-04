@@ -4,7 +4,10 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-COPY src ./src
+COPY package.json ./
+COPY tsconfig.json ./
+
+COPY . .
 
 RUN npm install
 

@@ -1,4 +1,5 @@
-import { ApiException } from '~~/types/exceptions'
+import { ApiException } from "~~/types/exceptions"
+
 
 /**
  * Classe générique qui sert à créer des erreurs HTTP (ici 400 et 404)
