@@ -43,8 +43,8 @@ app.use(ntlm({
 app.get('/ntlm', (req:any,res:any) => {
   const result = JSON.stringify(req.ntlm)
   console.log('Auth :',JSON.parse(result))
-  const res = JSON.parse(result)
-  res.end(res)
+  const response = JSON.parse(result)
+  res.end(response)
 })
 
 /**
