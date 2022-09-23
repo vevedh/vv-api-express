@@ -11,13 +11,8 @@ const ntlm = require('express-ntlm')
  */
 const app = express()
 
-app.use(ntlm({
-
-  domain: 'agglo.local',
-  domaincontroller: 'ldap://agglo.local',
 
 
-}))
 
 /**
  * On dit à Express que l'on souhaite parser le body des requêtes en JSON
@@ -32,12 +27,22 @@ app.use(express.json())
  */
 app.use(cors())
 
+
+app.use(ntlm({
+
+  domain: 'agglo.local',
+  domaincontroller: 'ldap://agglo.local',
+
+
+}))
+
 /**
  * Toutes les routes CRUD pour les animaux seronts préfixées par `/pets`
  */
 //app.use('/pets', PetsController)
 app.get('/ntlm', (req:any,res:any) => {
-  res.send(JSON.stringify(req.ntlm))
+  const result = JSON.stringify(req.ntlm)
+  res.end(result)
 })
 
 /**
