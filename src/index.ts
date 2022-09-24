@@ -40,7 +40,7 @@ app.use(ntlm({
  * Toutes les routes CRUD pour les animaux seronts préfixées par `/pets`
  */
 //app.use('/pets', PetsController)
-app.post('/ntlm', (req:any,res:any) => {
+app.get('/ntlm', (req:any,res:any) => {
   const result = JSON.stringify(req.ntlm)
   console.log('Auth :',JSON.parse(result))
   const response = JSON.parse(result)
