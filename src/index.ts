@@ -28,14 +28,15 @@ app.use(express.json())
 app.use(cors())
 
 
-app.use(ntlm({
-
-  domain: 'agglo.local',
-  domaincontroller: 'ldap://agglo.local',
-
-
-}))
-
+/*
+ *app.use(ntlm({
+ *
+ *domain: 'agglo.local',
+ *domaincontroller: 'ldap://agglo.local',
+ *
+ *
+ *}))
+ */
 /**
  * Toutes les routes CRUD pour les animaux seronts préfixées par `/pets`
  */
