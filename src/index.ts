@@ -41,9 +41,11 @@ app.use(ntlm({
  */
 //app.use('/pets', PetsController)
 app.get('/ntlm', (req:any,res:any) => {
-  const result = JSON.stringify(req.ntlm)
-  console.log('Auth :',JSON.parse(result))
-  const response = JSON.parse(result)
+  /*
+   *const result = JSON.stringify(req.ntlm)
+   *console.log('Auth :',JSON.parse(result))
+   *const response = JSON.parse(result)
+   */
   res.send(JSON.stringify({ success:'ok'}))
 })
 
